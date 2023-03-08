@@ -1,0 +1,61 @@
+.mission {
+  $rs: &;
+
+  @include media('min', $viewport-post-md) {
+    margin-bottom: 100px;
+  }
+  
+  @include media('max', $viewport-md) {
+    margin-bottom: 50px;
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-color: $color-extra;
+    background-image: url('@/images/mission-left-bg.svg'), url('@/images/mission-right-bg.svg');
+    background-position: left center, right center;
+    background-repeat: no-repeat, no-repeat;
+    color: #ffffff;
+    text-align: center;
+
+    @include media('min', $viewport-post-md) {
+      min-height: 471px;
+      padding: 30px;
+    }
+    
+    @include media('max', $viewport-md) {
+      padding: 30px 5px;
+      background-size: auto 80%, auto 80%;
+    }
+  }
+
+  &__heading {
+    width: 100%;
+    max-width: 1090px;
+    line-height: 1.1;
+
+    @include media('min', $viewport-post-md) {
+      margin: 0 auto 40px;
+    }
+  }
+
+  &__caption {
+    width: 100%;
+    max-width: 1090px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 auto;
+
+    @include media('min', $viewport-post-md) {
+      font-size: 32px;
+    }
+    
+    @include media('max', $viewport-md) {
+      font-size: 16px;
+    }
+  }
+}

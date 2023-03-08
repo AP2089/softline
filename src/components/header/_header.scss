@@ -1,0 +1,96 @@
+.header {
+  &__wrap {
+    @include media('min', $viewport-post-md) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1110px;
+      height: 85px;
+      margin: 0 auto;
+    }
+
+    @include media('max', $viewport-md) {
+      padding: 15px 0 10px 0;
+    }
+  }
+
+  &__logo {
+    width: 125px;
+    height: 25px;
+    text-decoration: none;
+    opacity: 1;
+    transition: opacity .5s ease 0s;
+
+    @include media('min', $viewport-post-md) {
+      margin-right: 15px;
+    }
+    
+    @include media('max', $viewport-md) {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    &:hover {
+      opacity: .7;
+      text-decoration: none;
+    }
+  }
+
+  &__logo-img {
+    display: block;
+    width: initial;
+    height: inherit;
+  }
+
+  &__menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include media('min', $viewport-post-md) {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+
+  &__menu-item {
+    padding: 0;
+
+    @include media('min', $viewport-post-md) {
+      margin: 0 20px 0 0;
+      line-height: 1.2;
+    }
+    
+    @include media('max', $viewport-md) {
+      display: inline;
+      margin: 0 5px 0 0;
+      line-height: 1.1;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__menu-link {
+    font-style: normal;
+    font-weight: 600;
+    color: $color-global;
+    text-decoration: none;
+
+    @include media('min', $viewport-post-md) {
+      font-size: 18px;
+    }
+    
+    @include media('max', $viewport-md) {
+      font-size: 14px;
+    }
+
+    &:hover {
+      color: $color-danger;
+      text-decoration: none;
+    }
+  }
+}

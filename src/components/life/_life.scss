@@ -1,0 +1,47 @@
+.life {
+  $rs: &;
+  margin-bottom: 50px;
+
+  &__wrap {
+    max-width: 1110px;
+    margin: 0 auto;
+  }
+
+  &__head {
+    @include media('min', $viewport-post-md) {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 45px;
+    }
+    
+    @include media('max', $viewport-md) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__heading {
+    margin: 0;
+  }
+
+  &__nav {
+    @include media('min', $viewport-post-md) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 30px;
+    }
+    
+    @include media('max', $viewport-md) {
+      display: none;
+    }
+  }
+
+  &__nav-btn {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

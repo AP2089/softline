@@ -1,0 +1,33 @@
+<div class="package js-scene">
+  <div class="package__center center">
+    <div class="package__wrap">
+      <div class="package__heading heading-base">Компенсационный пакет</div>
+
+      <div class="package__list">
+        {{#each @package.list1}}
+          <div class="package__item">
+            <div class="package__media">
+              <svg class="package__icon"><use xlink:href="#{{this.icon}}"></use></svg>
+            </div>
+            <div class="package__caption">{{this.caption}}</div>
+          </div>
+        {{/each}}
+      </div>
+
+      <hr class="package__line" />
+
+      <div class="package__subheading">Программа дополнительной мотивации <span class="text-danger">доплата 12% от суммы</span></div>
+
+      <div class="package__list package__list_extra">
+        {{#each @package.list2}}
+          <div class="package__item">
+            <div class="package__media">
+              <svg class="package__icon"><use xlink:href="#{{this.icon}}"></use></svg>
+            </div>
+            <div class="package__caption">{{this.caption}}</div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

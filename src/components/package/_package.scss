@@ -1,0 +1,154 @@
+.package {
+  $rs: &;
+
+  @include media('min', $viewport-post-md) {
+    margin-bottom: 100px;
+  }
+  
+  @include media('max', $viewport-md) {
+    margin-bottom: 50px;
+  }
+
+  &__wrap {
+    max-width: 1110px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
+
+    @include media('min', $viewport-post-md) {
+      padding: 82px 30px 77px 30px;
+    }
+    
+    @include media('max', $viewport-md) {
+      padding: 25px 5px 0 5px;
+    }
+  }
+
+  &__heading {
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    align-items: flex-start;
+
+    @include media('min', $viewport-post-md) {
+      max-width: 958px;
+      margin: 0 auto;
+      justify-content: space-between;
+  
+      &_extra {
+        max-width: 555px;
+      } 
+    }
+    
+    @include media('max', $viewport-md) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align: center;
+
+    @include media('min', $viewport-post-md) {
+      flex: 1 1 0;
+      margin: 0 8px;
+  
+      &:first-child {
+        margin-left: 0;
+      }
+  
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    
+    @include media('max', $viewport-md) {
+      flex-basis: 50%;
+      padding: 0 5px;
+      margin-bottom: 25px;
+    }
+  }
+
+  &__media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: $color-service;
+    margin-bottom: 10px;
+
+    @include media('min', $viewport-post-md) {
+      width: 110px;
+      height: 110px;
+    }
+    
+    @include media('max', $viewport-md) {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  &__icon {
+    fill: $color-danger;
+
+    @include media('min', $viewport-post-md) {
+      width: 48px;
+      height: 48px;
+    }
+    
+    @include media('max', $viewport-md) {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  &__caption {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.1;
+
+    @include media('min', $viewport-post-md) {
+      font-size: 18px;
+    }
+    
+    @include media('max', $viewport-md) {
+      font-size: 16px;
+    }
+  }
+
+  &__line {
+    border-top: 1px solid $color-factory;
+
+    @include media('min', $viewport-post-md) {
+      margin: 69px 0 70px 0;
+    }
+    
+    @include media('max', $viewport-md) {
+      margin: 0 0 25px 0;
+    }
+  }
+
+  &__subheading {
+    max-width: 755px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+
+    @include media('min', $viewport-post-md) {
+      font-size: 40px;
+      margin: 0 auto 55px;
+    }
+    
+    @include media('max', $viewport-md) {
+      font-size: 22px;
+      margin: 0 auto 15px;
+    }
+  }
+}

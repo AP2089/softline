@@ -1,0 +1,33 @@
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  color: #FFFFFF;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2;
+  background-color: $color-danger;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0;
+  transition: background-color .5s ease 0s;
+
+  @include media('min', $viewport-post-md) {
+    font-size: 18px;
+    padding: 18px 28px;
+  }
+  
+  @include media('max', $viewport-md) {
+    font-size: 16px;
+    padding: 8px 20px;
+  }
+
+  &:hover {
+    text-decoration: none;
+    outline: none;
+    background-color: $color-danger-light;
+  }
+}

@@ -1,0 +1,32 @@
+<div class="life swiper-target js-scene">
+  <div class="life__center center">
+    <div class="life__wrap">
+      <div class="life__head">
+        <div class="life__heading heading-base">Корпоративная жизнь</div>
+        <div class="life__nav">
+          <div class="life__nav-btn swiper-button-prev">
+            <svg class="swiper-button-icon"><use xlink:href="#prev"></use></svg>
+          </div>
+          <div class="life__nav-btn swiper-button-next">
+            <svg class="swiper-button-icon"><use xlink:href="#next"></use></svg>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+          {{#each @life.slides}}
+            <div class="swiper-slide">
+              <picture class="swiper-picture">
+                <source type="image/webp" srcset="{{this.images.webp}}" />
+                <img src="{{this.images.any}}" alt="" loading="lazy" class="swiper-img" width="1110" height="834" />
+              </picture>
+            </div>
+          {{/each}}
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+</div>

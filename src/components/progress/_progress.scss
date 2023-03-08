@@ -1,0 +1,76 @@
+.progress {
+  $rs: &;
+
+  @include media('min', $viewport-post-md) {
+    margin-bottom: 100px;
+  }
+  
+  @include media('max', $viewport-md) {
+    margin-bottom: 50px;
+  }
+
+  &__list {
+    max-width: 890px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include media('min', $viewport-post-md) {
+      margin-bottom: 80px;
+    }
+
+    &:last-child {
+      max-width: 590px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__item {
+    margin: 0 50px 30px 50px;
+
+    #{$rs}__list & {
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__heading {
+    font-style: normal;
+    font-weight: 600;
+    line-height: 0.8;
+    color: $color-danger;
+
+    @include media('min', $viewport-post-md) {
+      font-size: 80px;
+      margin-bottom: 6px;
+    }
+    
+    @include media('max', $viewport-md) {
+      font-size: 40px;
+      margin-bottom: 4px;
+    }
+  }
+
+  &__caption {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.2;
+    
+    @include media('min', $viewport-post-md) {
+      font-size: 18px;
+      max-width: 240px;
+    }
+    
+    @include media('max', $viewport-md) {
+      font-size: 16px;
+      max-width: 150px;
+    }
+  }
+}

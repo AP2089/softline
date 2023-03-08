@@ -1,0 +1,12 @@
+<div class="progress js-scene">
+  <div class="progress__center center">
+    <div class="progress__list">
+      {{#each @progress.list}}
+        <div class="progress__item">
+          <div class="progress__heading">{{this.title}}</div>
+          <div class="progress__caption">{{this.caption}}</div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

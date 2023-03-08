@@ -1,0 +1,59 @@
+.banner {
+  @include media('min', $viewport-post-md) {
+    margin-bottom: 100px;
+  }
+  
+  @include media('max', $viewport-md) {
+    margin-bottom: 50px;
+  }
+  
+  &__wrap {
+    position: relative;
+  }
+
+  &__bg {
+    display: block;
+  }
+
+  &__bg-img {
+    display: block;
+    object-fit: cover;
+
+    @include media('max', $viewport-sm) {
+      height: 300px;
+    }
+  }
+
+  &__main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    @include media('min', $viewport-post-md) {
+      padding: 70px;
+    }
+    
+    @include media('max', $viewport-md) {
+      padding: 5px;
+    }
+  }
+
+  &__heading {
+    max-width: 710px;
+
+    @include media('min', $viewport-post-md) {
+      margin: 0 0 60px 0;
+    }
+    
+    @include media('max', $viewport-md) {
+      margin: 0 0 20px 0;
+    }
+  }
+}

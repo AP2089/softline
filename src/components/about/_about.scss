@@ -1,0 +1,30 @@
+.about {
+  @include media('min', $viewport-post-md) {
+    margin-bottom: 100px;
+  }
+  
+  @include media('max', $viewport-md) {
+    margin-bottom: 50px;
+  }
+
+  &__wrap {
+    max-width: 1110px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.08);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.19;
+    text-align: center;
+
+    @include media('min', $viewport-post-md) {
+      padding: 100px 110px 98px 110px;
+      font-size: 32px;
+    }
+    
+    @include media('max', $viewport-md) {
+      padding: 5px;
+      font-size: 16px;
+    }
+  }
+}

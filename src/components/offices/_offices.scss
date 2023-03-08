@@ -1,0 +1,384 @@
+.offices {
+  $rs: &;
+
+  @include media('min', $viewport-post-md) {
+    margin-bottom: 100px;
+  }
+  
+  @include media('max', $viewport-md) {
+    margin-bottom: 50px;
+  }
+
+  &__head {
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.06);
+    position: relative;
+    z-index: 101;
+
+    @include media('min', $viewport-post-lg) {
+      padding: 0 70px;
+    }
+    
+    @include media('max', $viewport-lg) {
+      padding: 10px 10px 0 10px;
+    }
+
+    @include media('min', $viewport-post-md) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      margin-bottom: 90px;
+    }
+    
+    @include media('max', $viewport-md) {
+      margin-bottom: 10px;
+    }
+
+    &:before {
+      width: 0;
+      height: 0;
+      content: '';
+      background-color: rgba(255,255,255,.8);
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      transition: opacity .5s ease 0s, width 0s ease .5s, height 0s ease .5s;
+    }
+
+    &.active {
+      &:before {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        transition: opacity .5s ease 0s, width 0s ease 0s, height 0s ease 0s;
+      }
+
+      #{$rs}__dropdown-icon {
+        transform: rotate(-180deg);
+      }
+  
+      #{$rs}__dropdown-core {
+        width: 100%;
+        transform: translateY(0);
+        opacity: 1;
+        transition: opacity .5s ease 0s, transform .5s ease 0s, width 0s ease 0s;
+      }
+    }
+  }
+
+  &__dropdown-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-style: normal;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    z-index: 2;
+    transition: color .5s ease 0s;
+
+    @include media('min', $viewport-post-md) {
+      font-size: 24px;
+      height: 80px;
+    }
+    
+    @include media('max', $viewport-md) {
+      font-size: 20px;
+      height: 30px;
+    }
+
+    &:hover {
+      color: $color-danger;
+
+      #{$rs}__dropdown-icon {
+        fill: $color-danger;
+      }
+    }
+  }
+
+  &__dropdown-icon {
+    fill: $color-global;
+    margin-left: 10px;
+    transform: rotate(0deg);
+    transition: fill .5s ease 0s, transform .5s ease 0s;
+
+    @include media('min', $viewport-post-md) {
+      width: 22px;
+      height: 12px;
+    }
+    
+    @include media('max', $viewport-md) {
+      width: 20px;
+      height: 11px;
+    }
+  }
+
+  &__dropdown-core {
+    width: 0;
+    position: absolute;
+    left: 0;
+    z-index: 100;
+    overflow: hidden;
+    transform: translateY(-10px);
+    opacity: 0;
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.06);
+    transition: opacity .5s ease 0s, transform .5s ease 0s, width 0s ease .5s;
+
+    @include media('min', $viewport-post-md) {
+      top: 100px;
+    }
+    
+    @include media('max', $viewport-md) {
+      top: 90px;
+    }
+  }
+
+  &__dropdown-list {
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    @include media('min', $viewport-post-md) {
+      padding: 30px 70px;
+    }
+    
+    @include media('max', $viewport-md) {
+      padding: 10px 5px;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__dropdown-col {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    @include media('min', $viewport-post-md) {
+      margin-right: 24px;
+      flex: 1 1 0;
+  
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    
+    @include media('max', $viewport-md) {
+      padding: 0 5px;
+      margin-bottom: 10px;
+    }
+
+    @include media(null, $viewport-post-sm, $viewport-md) {
+      width: 25%;
+    }
+
+    @include media('max', $viewport-sm) {
+      width: 33.333333%;
+    }
+  }
+
+  &__dropdown-heading {
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1;
+    color: $color-global;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+    transition: color .5s ease 0s;
+
+    @include media('min', $viewport-post-md) {
+      font-size: 18px;
+      margin: 0 0 10px 0;
+    }
+    
+    @include media('max', $viewport-md) {
+      font-size: 14px;
+      margin: 0 0 7px 0;
+      white-space: nowrap;
+    }
+
+    &:hover,
+    &.active {
+      color: $color-danger;
+    }
+  }
+
+  &__dropdown-link {
+    font-style: normal;
+    line-height: 1.2;
+    color: $color-global;
+    text-decoration: none;
+    transition: color .5s ease 0s;
+
+    @include media('min', $viewport-post-md) {
+      font-size: 18px;
+      margin: 0 0 10px 0;
+    }
+    
+    @include media('max', $viewport-md) {
+      font-size: 14px;
+      margin: 0 0 7px 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: $color-danger;
+    }
+  }
+
+  &__dropdown-backdrop {
+    width: 0;
+    height: 0;
+    background-color: rgba(255,255,255,.8);
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    transition: opacity .5s ease 0s, width 0s ease .5s, height 0s ease .5s;
+
+    &.active {
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      transition: opacity .5s ease 0s, width 0s ease 0s, height 0s ease 0s;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    @include media('max', $viewport-md) {
+      overflow-y: hidden;
+      overflow-x: auto;
+    }
+  }
+
+  &__nav-item {
+    padding: 0;
+
+    @include media('min', $viewport-post-md) {
+      margin: 0 30px 0 0;
+    }
+    
+    @include media('max', $viewport-md) {
+      margin: 0 15px 0 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-style: normal;
+    font-weight: 600;
+    padding: 5px 0;
+    margin: 0;
+    color: $color-global;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    transition: color .5s ease 0s;
+
+    @include media('min', $viewport-post-md) {
+      font-size: 18px;
+      height: 80px;
+    }
+    
+    @include media('max', $viewport-md) {
+      white-space: nowrap;
+      font-size: 16px;
+      height: 40px;
+    }
+
+    &:after {
+      display: block;
+      content: '';
+      width: 100%;
+      height: 3px;
+      background-color: $color-danger;
+      opacity: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: opacity .5s ease 0s;
+    }
+
+    &:hover,
+    &.active {
+      color: $color-danger;
+    }
+
+    &.active:after {
+      opacity: 1;
+    }
+  }
+
+  &__body {
+    max-width: 1190px;
+    margin: 0 auto;
+
+    @include media('max', $viewport-md) {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  }
+
+  &__inner {
+    @include media('max', $viewport-md) {
+      min-width: 700px;
+    }
+  }
+
+  &__map {
+    width: 100%;
+    height: 0;
+    padding-top: 50.840336%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__map-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    .js-offices-button-choose {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.js-scene {
+  opacity: 0;
+  transition: opacity 1s ease 0s;
+
+  .banner__heading {
+    transform: translateX(-30px);
+    transition: transform 1.5s ease 0s;
+  }
+
+  .banner__btn {
+    transform: translateX(-30px);
+    transition: transform 1.5s ease 0s;
+  }
+
+  .about__wrap {
+    transform: translateY(-30px);
+    transition: transform 1.5s ease 0s;
+  }
+
+  .progress__list {
+    transform: translateY(30px);
+    transition: transform 1.5s ease 0s;
+  }
+
+  .mission__heading {
+    transform: translateY(-30px);
+    transition: transform 1.5s ease 0s;
+  }
+
+  .mission__caption {
+    transform: translateY(30px);
+    transition: transform 1.5s ease 0s;
+  }
+
+  &.active {
+    opacity: 1;
+
+    .about__wrap,
+    .banner__heading,
+    .banner__btn {
+      transform: translateX(0);
+    }
+
+    .progress__list,
+    .mission__heading,
+    .mission__caption {
+      transform: translateY(0);
+    }
+  }
+}

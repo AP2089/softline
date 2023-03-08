@@ -1,0 +1,38 @@
+{
+  "list1": [
+    {
+      "icon": "medicine",
+      "caption": "Дмс"
+    },
+    {
+      "icon": "cake",
+      "caption": "Выходной в день рождения"
+    },
+    {
+      "icon": "connection",
+      "caption": "Корпоративная мобильная связь"
+    },
+    {
+      "icon": "sport",
+      "caption": "Корпоративные скидки на спорт"
+    },
+    {
+      "icon": "treaty",
+      "caption": "LTI"
+    }
+  ],
+  "list2": [
+    {
+      "icon": "seal",
+      "caption": "Оргтехники"
+    },
+    {
+      "icon": "medicine",
+      "caption": "ДМС"
+    },
+    {
+      "icon": "home",
+      "caption": "Ипотеки"
+    }
+  ]
+}

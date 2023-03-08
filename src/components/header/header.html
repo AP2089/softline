@@ -1,0 +1,18 @@
+<header class="header">
+  <div class="header__center center">
+    <div class="header__wrap">
+      <a href="/" class="header__logo">
+        <img src="./images/logo.svg" alt="Softline" class="header__logo-img" width="125" height="25" />
+      </a>
+      <nav class="header__menu">
+        <ul class="header__menu-list">
+          {{#each @header.menu}}
+            <li class="header__menu-item">
+              <a href="#" class="header__menu-link">{{this}}</a>
+            </li>
+          {{/each}}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
