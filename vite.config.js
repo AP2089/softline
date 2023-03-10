@@ -5,7 +5,8 @@ import handlebars from 'vite-plugin-handlebars';
 import vitePluginAutoGenerationWebp from './plugins/vite-plugin-auto-generation-webp';
 import vitePluginAutoAddComponents from './plugins/vite-plugin-auto-add-components';
 import vitePluginHtmlBeautify from './plugins/vite-plugin-html-beautify';
-import data from './src/data/main.json';
+import pagesContext from './src/data/pagesContext';
+import pagesData from './src/data/main.json';
 
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/softline/' : '/',
@@ -39,11 +40,14 @@ export default defineConfig({
     }),
     handlebars({
       runtimeOptions: {
-        data
+        data: pagesData
+      },
+      context(pagePath) {
+        return pagesContext[path.parse(pagePath).name];
       },
       partialDirectory: [
         path.resolve(__dirname, 'src/components'),
-        path.resolve(__dirname, 'src/layouts'),
+        path.resolve(__dirname, 'src/layouts')
       ],
       helpers: {
         include: (partial) => {
