@@ -1,69 +1,78 @@
 import { defineConfig } from 'vite';
 import path from 'path';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
-import handlebars from 'vite-plugin-handlebars';
+import nunjucks from 'vite-plugin-nunjucks';
+import viteImagemin from 'vite-plugin-imagemin';
 import vitePluginAutoGenerationWebp from './plugins/vite-plugin-auto-generation-webp';
-import vitePluginAutoAddComponents from './plugins/vite-plugin-auto-add-components';
 import vitePluginHtmlBeautify from './plugins/vite-plugin-html-beautify';
-import pagesContext from './src/data/pagesContext';
-import pagesData from './src/data/main.json';
 
-export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/softline/' : '/',
-  root: path.resolve(process.cwd(), 'src'),
-  build: {
-    outDir: path.resolve(__dirname, 'dist')
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-      '~': path.resolve(__dirname, 'node_modules')
+export default defineConfig(({ command }) => {
+  const config = {
+    root: path.resolve(process.cwd(), 'src'),
+    build: {
+      outDir: path.resolve(__dirname, 'dist')
     },
-    extensions: ['.js', '.json', '.scss', '.html', '.hbs']
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `
-          @import "@/styles/_config.scss";
-          @import "@/styles/_mixins.scss";
-        `
-      }
-    }
-  },
-  plugins: [
-    createSvgIconsPlugin({
-      iconDirs: [path.resolve(process.cwd(), 'src/sprites')],
-      symbolId: '[name]',
-      inject: 'body-first',
-      customDomId: 'sprite-svg'
-    }),
-    handlebars({
-      runtimeOptions: {
-        data: pagesData
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+        '~': path.resolve(__dirname, 'node_modules')
       },
-      context(pagePath) {
-        return pagesContext[path.parse(pagePath).name];
-      },
-      partialDirectory: [
-        path.resolve(__dirname, 'src/components'),
-        path.resolve(__dirname, 'src/layouts')
-      ],
-      helpers: {
-        include: (partial) => {
-          return `${partial}/${partial}`;
+      extensions: ['.js', '.json', '.scss', '.html']
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+            @import "@/styles/_config.scss";
+            @import "@/styles/_mixins.scss";
+          `
         }
       }
-    }),
-    vitePluginAutoGenerationWebp({
-      src: [
-        './src/images/**/*.{png,jpg,jpeg}',
-        './public/images/**/*.{png,jpg,jpeg}'
-      ]
-    }),
-    vitePluginAutoAddComponents(),
-    vitePluginHtmlBeautify({
-      indent_size: 2
-    })
-  ]
+    },
+    plugins: [
+      createSvgIconsPlugin({
+        iconDirs: [path.resolve(process.cwd(), 'src/sprites')],
+        symbolId: '[name]',
+        inject: 'body-first',
+        customDomId: 'sprite-svg'
+      }),
+      nunjucks.default({
+        nunjucksEnvironment: {
+          filters: {
+            typeof: value => typeof value,
+            json: value => value.trim().length ? JSON.parse(value) : null,
+            merge: (obj1, obj2) => {
+              if (typeof obj1 === 'object' && typeof obj2 === 'object') {
+                return { ...obj1, ...obj2 }
+              }
+
+              return null;
+            }
+          }
+        }
+      }),
+      vitePluginAutoGenerationWebp({
+        src: [
+          './src/images/**/*.{png,jpg,jpeg}',
+          './public/images/**/*.{png,jpg,jpeg}'
+        ]
+      })
+    ]
+  }
+
+  if (command === 'build') {
+    config.base = '/softline/';
+
+    config.plugins = [
+      ...config.plugins,
+      vitePluginHtmlBeautify({
+        indent_size: 2,
+        preserve_newlines: false,
+        extra_liners: []
+      }),
+      viteImagemin(),
+    ]
+  }
+
+  return config;
 });

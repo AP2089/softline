@@ -6,11 +6,11 @@
       </a>
       <nav class="header__menu">
         <ul class="header__menu-list">
-          {{#each @header.menu}}
+          {% for item in data.menu %}
             <li class="header__menu-item">
-              <a href="#" class="header__menu-link">{{this}}</a>
+              <a href="#" class="header__menu-link">{{ item }}</a>
             </li>
-          {{/each}}
+          {% endfor %}
         </ul>
       </nav>
     </div>

@@ -1,12 +1,12 @@
 <div class="progress js-scene">
   <div class="progress__center center">
     <div class="progress__list">
-      {{#each @progress.list}}
+      {% for item in data.list %}
         <div class="progress__item">
-          <div class="progress__heading">{{this.title}}</div>
-          <div class="progress__caption">{{this.caption}}</div>
+          <div class="progress__heading">{{ item.title }}</div>
+          <div class="progress__caption">{{ item.caption }}</div>
         </div>
-      {{/each}}
+      {% endfor %}
     </div>
   </div>
 </div>

@@ -14,16 +14,14 @@
       </div>
       <div class="swiper-container">
         <div class="swiper-wrapper">
-
-          {{#each @life.slides}}
+          {% for item in data.slides %}
             <div class="swiper-slide">
               <picture class="swiper-picture">
-                <source type="image/webp" srcset="{{this.images.webp}}" />
-                <img src="{{this.images.any}}" alt="" loading="lazy" class="swiper-img" width="1110" height="834" />
+                <source type="image/webp" srcset="{{ item.images.webp }}" />
+                <img src="{{ item.images.any }}" alt="" loading="lazy" class="swiper-img" width="1110" height="834" />
               </picture>
             </div>
-          {{/each}}
-
+          {% endfor %}
         </div>
         <div class="swiper-pagination"></div>
       </div>

@@ -1,5 +1,6 @@
 import 'virtual:svg-icons-register';
-import '@/styles/main';
+import.meta.globEager('@/styles/main.scss');
+import.meta.globEager('@/components/**/*.scss');
 import { swiperBaseInit } from '@/scripts/swiper';
 import { scenesInit } from '@/scripts/scenes';
 import Toggle from '@/scripts/toggle';

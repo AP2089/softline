@@ -6,7 +6,7 @@
   "homepage": "http://ap2089.github.io/softline",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --emptyOutDir",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
@@ -16,11 +16,14 @@
     "fast-glob": "^3.2.12",
     "gh-pages": "^5.0.0",
     "glob": "^9.2.1",
+    "i": "^0.3.7",
     "js-beautify": "^1.14.7",
+    "npm": "^9.6.5",
     "sass": "^1.58.3",
     "sharp": "^0.31.3",
     "vite": "^4.1.0",
-    "vite-plugin-handlebars": "^1.6.0",
+    "vite-plugin-imagemin": "^0.6.1",
+    "vite-plugin-nunjucks": "^0.1.10",
     "vite-plugin-svg-icons": "^2.0.1"
   },
   "dependencies": {

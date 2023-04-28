@@ -3,21 +3,21 @@
     <div class="directions__wrap">
       <div class="directions__heading heading-base">Направления бизнеса</div>
       <div class="directions__list" id="js-directions">
-        {{#each @directions.list}}
+        {% for item in data.list %}
           <div class="directions__item js-toggle-wrap">
             <picture class="directions__picture">
-              <source type="image/webp" srcset="{{this.images.webp}}" />
-              <img src="{{this.images.any}}" alt="{{this.title}}" loading="lazy" class="directions__img" width="615" height="260" />
+              <source type="image/webp" srcset="{{ item.images.webp }}" />
+              <img src="{{ item.images.any }}" alt="{{ item.title }}" loading="lazy" class="directions__img" width="615" height="260" />
             </picture>
             <div class="directions__info">
-              <div class="directions__title">{{this.title}}</div>
-              <div class="directions__caption js-toggle-content">{{this.caption}}</div>
+              <div class="directions__title">{{ item.title }}</div>
+              <div class="directions__caption js-toggle-content">{{ item.caption }}</div>
             </div>
             <button class="directions__btn-mobile js-toggle-btn">
               <svg class="directions__btn-mobile-icon"><use xlink:href="#down"></use></svg>
             </button>
           </div>
-        {{/each}}
+        {% endfor %}
       </div>
     </div>
   </div>

@@ -1,10 +1,14 @@
-{{#> layoutDefault }}
-  {{> (include 'banner') }}
-  {{> (include 'about') }}
-  {{> (include 'progress') }}
-  {{> (include 'offices') }}
-  {{> (include 'mission') }}
-  {{> (include 'directions') }}
-  {{> (include 'package') }}
-  {{> (include 'life') }}
-{{/ layoutDefault }}
+{% extends 'src/layouts/layoutBase.html' %}
+
+{% set title = 'Главная' %}
+
+{% block middle %}
+  {{ component('banner') }}
+  {{ component('about') }}
+  {{ component('progress') }}
+  {{ component('offices') }}
+  {{ component('mission') }}
+  {{ component('directions') }}
+  {{ component('package') }}
+  {{ component('life') }}
+{% endblock %}

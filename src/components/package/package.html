@@ -4,14 +4,16 @@
       <div class="package__heading heading-base">Компенсационный пакет</div>
 
       <div class="package__list">
-        {{#each @package.list1}}
+        
+        {% for item in data.list1 %}
           <div class="package__item">
             <div class="package__media">
-              <svg class="package__icon"><use xlink:href="#{{this.icon}}"></use></svg>
+              <svg class="package__icon"><use xlink:href="#{{ item.icon }}"></use></svg>
             </div>
-            <div class="package__caption">{{this.caption}}</div>
+            <div class="package__caption">{{ item.caption }}</div>
           </div>
-        {{/each}}
+        {% endfor %}
+
       </div>
 
       <hr class="package__line" />
@@ -19,14 +21,16 @@
       <div class="package__subheading">Программа дополнительной мотивации <span class="text-danger">доплата 12% от суммы</span></div>
 
       <div class="package__list package__list_extra">
-        {{#each @package.list2}}
+
+        {% for item in data.list2 %}
           <div class="package__item">
             <div class="package__media">
-              <svg class="package__icon"><use xlink:href="#{{this.icon}}"></use></svg>
+              <svg class="package__icon"><use xlink:href="#{{ item.icon }}"></use></svg>
             </div>
-            <div class="package__caption">{{this.caption}}</div>
+            <div class="package__caption">{{ item.caption }}</div>
           </div>
-        {{/each}}
+        {% endfor %}
+
       </div>
     </div>
   </div>
